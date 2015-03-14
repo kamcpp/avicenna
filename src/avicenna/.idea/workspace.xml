@@ -76,12 +76,13 @@
       <file leaf-file-name="Sample.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/samples/org/labcrypto/avicenna/samples/hello_world/Sample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43267107" vertical-offset="0" max-vertical-offset="453">
-              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.5562914" vertical-offset="0" max-vertical-offset="453">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#224#225#0" expanded="true" />
                 <element signature="e#261#262#0" expanded="true" />
+                <element signature="e#296#297#0" expanded="true" />
                 <element signature="e#339#340#0" expanded="true" />
               </folding>
             </state>
@@ -428,6 +429,11 @@
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="dynamic.classpath" value="false" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings />
+    </option>
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -915,12 +921,12 @@
       <created>1426331696495</created>
       <updated>1426331696495</updated>
       <workItem from="1426331698576" duration="7138000" />
-      <workItem from="1426363881988" duration="2168000" />
+      <workItem from="1426363881988" duration="2359000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9306000" />
+    <option name="totallyTimeSpent" value="9497000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="37" y="-3" width="1329" height="771" extended-state="6" />
@@ -1013,6 +1019,7 @@
             <element signature="imports" expanded="true" />
             <element signature="e#224#225#0" expanded="true" />
             <element signature="e#261#262#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
             <element signature="e#339#340#0" expanded="true" />
           </folding>
         </state>
@@ -1215,12 +1222,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/samples/org/labcrypto/avicenna/samples/hello_world/Sample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43267107" vertical-offset="0" max-vertical-offset="453">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.5562914" vertical-offset="0" max-vertical-offset="453">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#224#225#0" expanded="true" />
             <element signature="e#261#262#0" expanded="true" />
+            <element signature="e#296#297#0" expanded="true" />
             <element signature="e#339#340#0" expanded="true" />
           </folding>
         </state>
