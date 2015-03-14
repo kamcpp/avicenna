@@ -10,9 +10,5 @@ import java.util.Random;
 public class HelloWorldDependencyFactory {
 
     @Dependency
-    public Point getSingletonPoint() {
-        Random random = new Random();
-        return new Point(random.nextInt(100),
-                random.nextInt(100));
-    }
+    private String helloWorldMessage = "Hello World ...";
 }

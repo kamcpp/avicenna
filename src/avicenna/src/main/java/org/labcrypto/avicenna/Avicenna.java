@@ -26,12 +26,13 @@ public class Avicenna {
             Class clazz = dependencyFactory.getClass();
             for (Field field : clazz.getDeclaredFields()) {
                 if (field.isAnnotationPresent(Dependency.class)) {
-                    dependencyContainer.add(field.getDeclaringClass(), field.get(dependencyFactory));
+                    field.setAccessible(true);
+                    dependencyContainer.add(field.getType(), field.get(dependencyFactory));
                 }
             }
             for (Method method : clazz.getMethods()) {
-                if(method.isAnnotationPresent(Dependency.class)) {
-
+                if (method.isAnnotationPresent(Dependency.class)) {
+                    // TODO
                 }
             }
         } catch (Exception e) {
@@ -39,7 +40,19 @@ public class Avicenna {
         }
     }
 
-    public void inject(Object... objects) {
-        // TODO
+    public static void inject(Object... objects) {
+        try {
+            for (Object object : objects) {
+                Class clazz = object.getClass();
+                for (Field field : clazz.getDeclaredFields()) {
+                    if (field.isAnnotationPresent(InjectHere.class)) {
+                        field.setAccessible(true);
+                        field.set(object, dependencyContainer.get(field.getType()));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            throw new AvicennaRuntimeException(e);
+        }
     }
 }

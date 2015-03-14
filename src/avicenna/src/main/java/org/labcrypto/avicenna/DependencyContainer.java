@@ -19,7 +19,7 @@ public class DependencyContainer {
     }
 
     public Object get(Class clazz) {
-        if (objects.containsKey(clazz)) {
+        if (!objects.containsKey(clazz)) {
             throw new AvicennaRuntimeException("There is no registered object for this type " + clazz);
         }
         return objects.get(clazz);
