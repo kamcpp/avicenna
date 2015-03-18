@@ -26,13 +26,22 @@ public class Avicenna {
             Class clazz = dependencyFactory.getClass();
             for (Field field : clazz.getDeclaredFields()) {
                 if (field.isAnnotationPresent(Dependency.class)) {
-                    field.setAccessible(true);
-                    dependencyContainer.add(field.getType(), field.get(dependencyFactory));
+                    dependencyContainer.add(field.getType(),
+                            new DependencySource(DependencySource.DependencySourceType.FIELD,
+                                    field,
+                                    null,
+                                    dependencyFactory,
+                                    field.isAnnotationPresent(Singleton.class)));
                 }
             }
             for (Method method : clazz.getMethods()) {
                 if (method.isAnnotationPresent(Dependency.class)) {
-                    // TODO
+                    dependencyContainer.add(method.getReturnType(),
+                            new DependencySource(DependencySource.DependencySourceType.METHOD,
+                                    null,
+                                    method,
+                                    dependencyFactory,
+                                    method.isAnnotationPresent(Singleton.class)));
                 }
             }
         } catch (Exception e) {
