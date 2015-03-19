@@ -4,7 +4,7 @@
 
     <groupId>labcrypto.org</groupId>
     <artifactId>avicenna</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
     <name>Avicenna Dependency Injection Framework</name>
 
     <description>
