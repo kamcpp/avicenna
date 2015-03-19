@@ -3,6 +3,11 @@ package org.labcrypto.avicenna;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+/**
+ * Main class for loading dependencies and injection purposes. This class
+ * should be used statically. It will extract dependencies from dependency
+ * factories and inject them into objects whenever it is needed.
+ */
 public class Avicenna {
 
     private static DependencyContainer dependencyContainer;
