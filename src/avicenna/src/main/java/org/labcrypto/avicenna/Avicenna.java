@@ -21,8 +21,6 @@
 
 package org.labcrypto.avicenna;
 
-import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -72,8 +70,7 @@ public class Avicenna {
         try {
             Class clazz = dependencyFactory.getClass();
             for (Field field : clazz.getDeclaredFields()) {
-                if (field.isAnnotationPresent(Dependency.class) ||
-                        field.isAnnotationPresent(Produces.class)) {
+                if (field.isAnnotationPresent(Dependency.class)) {
                     dependencyContainer.add(field.getType(),
                             new DependencySource(DependencySource.DependencySourceType.FIELD,
                                     field,
@@ -83,8 +80,7 @@ public class Avicenna {
                 }
             }
             for (Method method : clazz.getMethods()) {
-                if (method.isAnnotationPresent(Dependency.class) ||
-                        method.isAnnotationPresent(Produces.class)) {
+                if (method.isAnnotationPresent(Dependency.class)) {
                     dependencyContainer.add(method.getReturnType(),
                             new DependencySource(DependencySource.DependencySourceType.METHOD,
                                     null,
@@ -109,8 +105,7 @@ public class Avicenna {
             for (Object object : objects) {
                 Class clazz = object.getClass();
                 for (Field field : clazz.getDeclaredFields()) {
-                    if (field.isAnnotationPresent(InjectHere.class) ||
-                            field.isAnnotationPresent(Inject.class)) {
+                    if (field.isAnnotationPresent(InjectHere.class)) {
                         field.setAccessible(true);
                         field.set(object, dependencyContainer.get(field.getType()));
                     }
