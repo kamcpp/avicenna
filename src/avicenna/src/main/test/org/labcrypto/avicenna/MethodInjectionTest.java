@@ -61,7 +61,7 @@ public class MethodInjectionTest {
 
     @Test
     public void testNotNull() {
-        Avicenna.addDependencyFactory(new SingletonDependenctFactory());
+        Avicenna.addDependencyFactory(new SingletonDependencyFactory());
 
         MethodInjectionFirstTarget methodInjectionFirstTarget = new MethodInjectionFirstTarget();
 

@@ -21,6 +21,8 @@
 
 package org.labcrypto.avicenna;
 
+import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -56,7 +58,7 @@ public class Avicenna {
         for (Object dependencyFactory : dependencyFactories) {
             if (!dependencyFactory.getClass().isAnnotationPresent(DependencyFactory.class)) {
                 throw new AvicennaRuntimeException(
-                        dependencyFactory.getClass() + " should be annotated as a DependencyFactory.");
+                        dependencyFactory.getClass() + " should be annotated with DependencyFactory.");
             }
             addDependencyFactoryToContainer(dependencyFactory);
         }
@@ -70,7 +72,8 @@ public class Avicenna {
         try {
             Class clazz = dependencyFactory.getClass();
             for (Field field : clazz.getDeclaredFields()) {
-                if (field.isAnnotationPresent(Dependency.class)) {
+                if (field.isAnnotationPresent(Dependency.class) ||
+                        field.isAnnotationPresent(Produces.class)) {
                     dependencyContainer.add(field.getType(),
                             new DependencySource(DependencySource.DependencySourceType.FIELD,
                                     field,
@@ -80,7 +83,8 @@ public class Avicenna {
                 }
             }
             for (Method method : clazz.getMethods()) {
-                if (method.isAnnotationPresent(Dependency.class)) {
+                if (method.isAnnotationPresent(Dependency.class) ||
+                        method.isAnnotationPresent(Produces.class)) {
                     dependencyContainer.add(method.getReturnType(),
                             new DependencySource(DependencySource.DependencySourceType.METHOD,
                                     null,
@@ -105,7 +109,8 @@ public class Avicenna {
             for (Object object : objects) {
                 Class clazz = object.getClass();
                 for (Field field : clazz.getDeclaredFields()) {
-                    if (field.isAnnotationPresent(InjectHere.class)) {
+                    if (field.isAnnotationPresent(InjectHere.class) ||
+                            field.isAnnotationPresent(Inject.class)) {
                         field.setAccessible(true);
                         field.set(object, dependencyContainer.get(field.getType()));
                     }

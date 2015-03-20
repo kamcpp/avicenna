@@ -28,7 +28,7 @@ import java.util.Random;
 import static org.junit.Assert.*;
 
 @DependencyFactory
-class SingletonDependenctFactory {
+class SingletonDependencyFactory {
 
     @Singleton
     @Dependency
@@ -62,7 +62,7 @@ public class SingletonTest {
 
     @Test
     public void testNotNull() {
-        Avicenna.addDependencyFactory(new SingletonDependenctFactory());
+        Avicenna.addDependencyFactory(new SingletonDependencyFactory());
 
         SingletonFirstTarget singletonFirstTarget = new SingletonFirstTarget();
 
@@ -73,7 +73,7 @@ public class SingletonTest {
 
     @Test
     public void testSingleton() {
-        Avicenna.addDependencyFactory(new SingletonDependenctFactory());
+        Avicenna.addDependencyFactory(new SingletonDependencyFactory());
 
         SingletonFirstTarget singletonFirstTarget = new SingletonFirstTarget();
         SingletonSecondTarget singletonSecondTarget = new SingletonSecondTarget();

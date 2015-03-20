@@ -1,0 +1,4 @@
+Version 1.3:
+
+  - Some typing errors are corrected.
+  - Support for javax.inject.Inject and javax.enterprise.Produces has been added.
