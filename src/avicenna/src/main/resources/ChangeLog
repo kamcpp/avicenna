@@ -3,6 +3,11 @@ Avicenna Dependency Injection Framework
 
 Author: Kamran Amini  <kam.cpp@gmail.com>
 
+Version 1.5:
+  - Eager and Lazy annotations have neem added. They are used for eager or lazy
+    initialization. [TODO]
+  - Validation exceptions have been written. Also, relevant tests have been added.
+
 Version 1.4:
   - Support for javax.inject.Inject and javax.enterprise.Produces has been removed.
 

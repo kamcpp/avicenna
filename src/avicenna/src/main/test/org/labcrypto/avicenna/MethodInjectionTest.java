@@ -57,29 +57,30 @@ class MethodInjectionSecondTarget {
     }
 }
 
+/**
+ * @author Kamran Amini  <kam.cpp@gmail.com>
+ */
 public class MethodInjectionTest {
 
     @Test
     public void testNotNull() {
+        Avicenna.clear();
         Avicenna.addDependencyFactory(new SingletonDependencyFactory());
 
         MethodInjectionFirstTarget methodInjectionFirstTarget = new MethodInjectionFirstTarget();
-
         Avicenna.inject(methodInjectionFirstTarget);
-
         assertNotNull(methodInjectionFirstTarget.getPoint());
     }
 
     @Test
     public void testMethodInjection() {
+        Avicenna.clear();
         Avicenna.addDependencyFactory(new MethodInjectionDependencyFactory());
 
         MethodInjectionFirstTarget methodInjectionFirstTarget = new MethodInjectionFirstTarget();
         MethodInjectionSecondTarget methodInjectionSecondTarget = new MethodInjectionSecondTarget();
-
         Avicenna.inject(methodInjectionFirstTarget);
         Avicenna.inject(methodInjectionSecondTarget);
-
         assertTrue(methodInjectionFirstTarget.getPoint() != methodInjectionSecondTarget.getPoint());
     }
 }

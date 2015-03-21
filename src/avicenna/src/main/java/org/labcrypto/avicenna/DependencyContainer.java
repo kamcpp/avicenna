@@ -36,6 +36,9 @@ class DependencyContainer {
     }
 
     public void add(Class clazz, DependencySource dependencySource) {
+        if (dependencySources.containsKey(clazz)) {
+            throw new AvicennaRuntimeException("There exist an entry for type: " + clazz);
+        }
         dependencySources.put(clazz, dependencySource);
     }
 
@@ -44,5 +47,9 @@ class DependencyContainer {
             throw new AvicennaRuntimeException("There is no registered object for this type " + clazz);
         }
         return dependencySources.get(clazz).getObject();
+    }
+
+    public void clear() {
+        dependencySources.clear();
     }
 }

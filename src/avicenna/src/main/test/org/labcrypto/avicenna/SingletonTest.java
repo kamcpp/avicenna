@@ -58,29 +58,30 @@ class SingletonSecondTarget {
     }
 }
 
+/**
+ * @author Kamran Amini  <kam.cpp@gmail.com>
+ */
 public class SingletonTest {
 
     @Test
     public void testNotNull() {
+        Avicenna.clear();
         Avicenna.addDependencyFactory(new SingletonDependencyFactory());
 
         SingletonFirstTarget singletonFirstTarget = new SingletonFirstTarget();
-
         Avicenna.inject(singletonFirstTarget);
-
         assertNotNull(singletonFirstTarget.getPoint());
     }
 
     @Test
     public void testSingleton() {
+        Avicenna.clear();
         Avicenna.addDependencyFactory(new SingletonDependencyFactory());
 
         SingletonFirstTarget singletonFirstTarget = new SingletonFirstTarget();
         SingletonSecondTarget singletonSecondTarget = new SingletonSecondTarget();
-
         Avicenna.inject(singletonFirstTarget);
         Avicenna.inject(singletonSecondTarget);
-
         assertTrue(singletonFirstTarget.getPoint() == singletonSecondTarget.getPoint());
     }
 }

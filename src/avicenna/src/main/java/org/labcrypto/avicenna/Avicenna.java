@@ -115,4 +115,8 @@ public class Avicenna {
             throw new AvicennaRuntimeException(e);
         }
     }
+
+    public static void clear() {
+        dependencyContainer.clear();
+    }
 }

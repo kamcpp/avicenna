@@ -21,39 +21,15 @@
 
 package org.labcrypto.avicenna;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
-
-@DependencyFactory
-class HelloWorldDependencyFactory {
-
-    @Dependency
-    private String helloWorldMessage = "Hello World ...";
-}
-
-class HelloWorldTarget {
-
-    @InjectHere
-    private String message;
-
-    public String getMessage() {
-        return message;
-    }
-}
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * @author Kamran Amini  <kam.cpp@gmail.com>
  */
-public class HelloWorldTest {
-
-    @Test
-    public void testHelloWorld() {
-        Avicenna.clear();
-        Avicenna.addDependencyFactory(new HelloWorldDependencyFactory());
-
-        HelloWorldTarget helloWorldTarget = new HelloWorldTarget();
-        Avicenna.inject(helloWorldTarget);
-        assertEquals("Hello World ...", helloWorldTarget.getMessage());
-    }
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Eager {
 }

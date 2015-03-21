@@ -26,34 +26,36 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 @DependencyFactory
-class HelloWorldDependencyFactory {
+class DependencyFactory1 {
 
     @Dependency
-    private String helloWorldMessage = "Hello World ...";
+    private String message = "Hello ...";
 }
 
-class HelloWorldTarget {
+@DependencyFactory
+class DependencyFactory2 {
 
-    @InjectHere
-    private String message;
-
+    @Dependency
+    @Singleton
     public String getMessage() {
-        return message;
+        return "Bye world ...";
     }
 }
 
 /**
  * @author Kamran Amini  <kam.cpp@gmail.com>
  */
-public class HelloWorldTest {
+public class DuplicateDependecnySourcesExceptionTest {
 
     @Test
-    public void testHelloWorld() {
-        Avicenna.clear();
-        Avicenna.addDependencyFactory(new HelloWorldDependencyFactory());
-
-        HelloWorldTarget helloWorldTarget = new HelloWorldTarget();
-        Avicenna.inject(helloWorldTarget);
-        assertEquals("Hello World ...", helloWorldTarget.getMessage());
+    public void testDuplicateDependencySources() {
+        try {
+            Avicenna.clear();
+            Avicenna.addDependencyFactory(new DependencyFactory1());
+            Avicenna.addDependencyFactory(new DependencyFactory2());
+            assertTrue("Duplicate dependency sources must not be allowed.", false);
+        } catch (Exception e) {
+            assertTrue(true);
+        }
     }
 }
