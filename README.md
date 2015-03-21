@@ -1,10 +1,10 @@
-### Avicenna Dependency Injection Framework
+## Avicenna Dependency Injection Framework
 
-####Synopsis
+###Synopsis
 
 **Avicenna** is a simple lightweight dependency injection framework for Java and Android, inspired by Dagger and CDI. It is mainly designed to reduce overheads of dependency injection in simple Java environments like Android. Using a full featured DI framework like Spring IoC, makes developers engage with many difficulties to configure these frameworks and use them. Such lightweight DI frameworks are best for fornt-end development where you are about to design a nice little logic for your front-end application.
 
-#### Adding to your project
+### Adding to your project
 
 It is really easy for projects using Maven build system. Just add following dependency tag to your *pom.xml* file.
 
@@ -25,7 +25,7 @@ For other build systems, you have to use their proper dependency declaration syn
 
 Notice that 1.4 is the current latest version and you should always use the latest version.
 
-#### Simple Start
+### Simple Start
 
 Here I start with a very simple usage; Hello World example. First of all, we need a dependency factory. It is a class annotated by **DependencyFactory** annotation. It has a method which returns a **String** reference and we will inject this reference wherever a **String** is needed. Notice, **names don't matter**.
 
@@ -67,3 +67,8 @@ public class Main {
   }
 }
 ```
+### Contributors
+
+### License
+
+**Avicenna** is free, open source under version 2 of [GNU GENERAL PUBLIC LICENSE](http://www.gnu.org/licenses/gpl-2.0.html).
