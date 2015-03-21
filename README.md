@@ -6,7 +6,7 @@
 
 #### Adding to your project
 
-It is really easy for projects built by Maven. Just add this dependency to your pom.xml file.
+It is really easy for projects using Maven build system. Just add following dependency tag to your *pom.xml* file.
 
 ```xml
   <dependency>
@@ -14,6 +14,11 @@ It is really easy for projects built by Maven. Just add this dependency to your 
     <artifactId>avicenna</artifactId>
     <version>1.4</version>
   </dependency>
+```
+If you are going to use **Avicenna** in an Android project using Gradle build system, it is easier to add following line to *build.gradle* file. This will trigger Gradle to download **Avicenna** and add it to your project.
+
+```groovy
+  compile 'org.labcrypto:avicenna:1.4';
 ```
 
 For other build systems, you have to use their proper dependency declaration syntax. If you're not using any build system, you can download it as a **jar** file and add it to your project.
