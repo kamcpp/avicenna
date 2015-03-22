@@ -4,8 +4,8 @@ Avicenna Dependency Injection Framework
 Author: Kamran Amini  <kam.cpp@gmail.com>
 
 Version 1.5:
-  - Eager and Lazy annotations have neem added. They are used for eager or lazy
-    initialization. [TODO]
+  - DependencyIdentifier class has been added. It is used to detect generic types
+    in fields or method return types. Relevant tests have been added.
   - Validation exceptions have been written. Also, relevant tests have been added.
 
 Version 1.4:

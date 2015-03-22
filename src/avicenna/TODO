@@ -1,0 +1,2 @@
+- Eager and Lazy annotations have been added. They are used for eager or lazy
+  initialization. [TODO]

@@ -71,7 +71,8 @@ public class Avicenna {
             Class clazz = dependencyFactory.getClass();
             for (Field field : clazz.getDeclaredFields()) {
                 if (field.isAnnotationPresent(Dependency.class)) {
-                    dependencyContainer.add(field.getType(),
+                    dependencyContainer.add(DependencyIdentifier
+                                    .getDependencyIdentifierForClass(field.getGenericType()),
                             new DependencySource(DependencySource.DependencySourceType.FIELD,
                                     field,
                                     null,
@@ -81,7 +82,8 @@ public class Avicenna {
             }
             for (Method method : clazz.getMethods()) {
                 if (method.isAnnotationPresent(Dependency.class)) {
-                    dependencyContainer.add(method.getReturnType(),
+                    dependencyContainer.add(DependencyIdentifier
+                                    .getDependencyIdentifierForClass(method.getGenericReturnType()),
                             new DependencySource(DependencySource.DependencySourceType.METHOD,
                                     null,
                                     method,
@@ -107,7 +109,8 @@ public class Avicenna {
                 for (Field field : clazz.getDeclaredFields()) {
                     if (field.isAnnotationPresent(InjectHere.class)) {
                         field.setAccessible(true);
-                        field.set(object, dependencyContainer.get(field.getType()));
+                        field.set(object, dependencyContainer.get(DependencyIdentifier
+                                .getDependencyIdentifierForClass(field.getGenericType())));
                     }
                 }
             }

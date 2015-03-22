@@ -29,24 +29,24 @@ import java.util.Map;
  */
 class DependencyContainer {
 
-    private Map<Class, DependencySource> dependencySources;
+    private Map<DependencyIdentifier, DependencySource> dependencySources;
 
     public DependencyContainer() {
-        dependencySources = new Hashtable<Class, DependencySource>();
+        dependencySources = new Hashtable<DependencyIdentifier, DependencySource>();
     }
 
-    public void add(Class clazz, DependencySource dependencySource) {
-        if (dependencySources.containsKey(clazz)) {
-            throw new AvicennaRuntimeException("There exist an entry for type: " + clazz);
+    public void add(DependencyIdentifier dependencyIdentifier, DependencySource dependencySource) {
+        if (dependencySources.containsKey(dependencyIdentifier)) {
+            throw new AvicennaRuntimeException("There exist an entry for dependency identifier: " + dependencyIdentifier);
         }
-        dependencySources.put(clazz, dependencySource);
+        dependencySources.put(dependencyIdentifier, dependencySource);
     }
 
-    public Object get(Class clazz) {
-        if (!dependencySources.containsKey(clazz)) {
-            throw new AvicennaRuntimeException("There is no registered object for this type " + clazz);
+    public Object get(DependencyIdentifier dependencyIdentifier) {
+        if (!dependencySources.containsKey(dependencyIdentifier)) {
+            throw new AvicennaRuntimeException("There is no registered object for this dependency identifier: " + dependencyIdentifier);
         }
-        return dependencySources.get(clazz).getObject();
+        return dependencySources.get(dependencyIdentifier).getObject();
     }
 
     public void clear() {
