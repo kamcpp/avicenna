@@ -70,7 +70,7 @@ public class Avicenna {
             for (Field field : clazz.getDeclaredFields()) {
                 if (field.isAnnotationPresent(Dependency.class)) {
                     dependencyContainer.add(DependencyIdentifier
-                                    .getDependencyIdentifierForClass(field.getGenericType()),
+                                    .getDependencyIdentifierForClass(field),
                             new DependencySource(DependencySource.DependencySourceType.FIELD,
                                     field,
                                     null,
@@ -81,7 +81,7 @@ public class Avicenna {
             for (Method method : clazz.getMethods()) {
                 if (method.isAnnotationPresent(Dependency.class)) {
                     dependencyContainer.add(DependencyIdentifier
-                                    .getDependencyIdentifierForClass(method.getGenericReturnType()),
+                                    .getDependencyIdentifierForClass(method),
                             new DependencySource(DependencySource.DependencySourceType.METHOD,
                                     null,
                                     method,
@@ -108,7 +108,7 @@ public class Avicenna {
                     if (field.isAnnotationPresent(InjectHere.class)) {
                         field.setAccessible(true);
                         field.set(object, dependencyContainer.get(DependencyIdentifier
-                                .getDependencyIdentifierForClass(field.getGenericType())));
+                                .getDependencyIdentifierForClass(field)));
                     }
                 }
             }

@@ -18,6 +18,8 @@
  */
 package org.labcrypto.avicenna;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -36,12 +38,24 @@ class DependencyIdentifier {
     /**
      * TODO
      *
-     * @param type
+     * @param method
      * @return
      */
-    public static DependencyIdentifier getDependencyIdentifierForClass(Type type) {
+    public static DependencyIdentifier getDependencyIdentifierForClass(Method method) {
         List<Type> typeList = new ArrayList<Type>();
-        addTypeToList(type, typeList);
+        addTypeToList(method.getGenericReturnType(), typeList);
+        return new DependencyIdentifier(typeList);
+    }
+
+    /**
+     * TODO
+     *
+     * @param field
+     * @return
+     */
+    public static DependencyIdentifier getDependencyIdentifierForClass(Field field) {
+        List<Type> typeList = new ArrayList<Type>();
+        addTypeToList(field.getGenericType(), typeList);
         return new DependencyIdentifier(typeList);
     }
 

@@ -3,6 +3,10 @@ Avicenna Dependency Injection Framework
 
 Author: Kamran Amini  <kam.cpp@gmail.com>
 
+Version 1.6:
+  - License changed to Apache License Version 2.0 .
+  - Support for Qualifiers have been added.
+
 Version 1.5:
   - DependencyIdentifier class has been added. It is used to detect generic types
     in fields or method return types. Relevant tests have been added.

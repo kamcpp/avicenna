@@ -62,14 +62,14 @@ public class DependencyIdentifierTest {
     @Test
     public void testNonGenericReturnType() {
         DependencyIdentifier dependencyIdentifier = DependencyIdentifier
-                .getDependencyIdentifierForClass(getMethod("method3").getGenericReturnType());
+                .getDependencyIdentifierForClass(getMethod("method3"));
         assertEquals(dependencyIdentifier.toString(), "java.lang.String");
     }
 
     @Test
     public void testGenericReturnType() {
         DependencyIdentifier dependencyIdentifier = DependencyIdentifier
-                .getDependencyIdentifierForClass(getMethod("method1").getGenericReturnType());
+                .getDependencyIdentifierForClass(getMethod("method1"));
         assertEquals(dependencyIdentifier.toString(),
                 "org.labcrypto.avicenna.DID-java.lang.String-java.lang.Double");
     }
@@ -77,21 +77,21 @@ public class DependencyIdentifierTest {
     @Test
     public void testNonGenericField() {
         DependencyIdentifier dependencyIdentifier = DependencyIdentifier
-                .getDependencyIdentifierForClass(getField("field3").getGenericType());
+                .getDependencyIdentifierForClass(getField("field3"));
         assertEquals(dependencyIdentifier.toString(), "java.lang.String");
     }
 
     @Test
     public void testNonGenericField2() {
         DependencyIdentifier dependencyIdentifier = DependencyIdentifier
-                .getDependencyIdentifierForClass(getField("field2").getGenericType());
+                .getDependencyIdentifierForClass(getField("field2"));
         assertEquals(dependencyIdentifier.toString(), "org.labcrypto.avicenna.DID");
     }
 
     @Test
     public void testGenericField() {
         DependencyIdentifier dependencyIdentifier = DependencyIdentifier
-                .getDependencyIdentifierForClass(getField("field1").getGenericType());
+                .getDependencyIdentifierForClass(getField("field1"));
         assertEquals(dependencyIdentifier.toString(),
                 "org.labcrypto.avicenna.DID-java.util.Random-java.util.Date");
     }
@@ -99,9 +99,9 @@ public class DependencyIdentifierTest {
     @Test
     public void testEquality() {
         DependencyIdentifier dependencyIdentifier = DependencyIdentifier
-                .getDependencyIdentifierForClass(getField("field1").getGenericType());
+                .getDependencyIdentifierForClass(getField("field1"));
         DependencyIdentifier dependencyIdentifier2 = DependencyIdentifier
-                .getDependencyIdentifierForClass(getMethod("method4").getGenericReturnType());
+                .getDependencyIdentifierForClass(getMethod("method4"));
         assertEquals(dependencyIdentifier, dependencyIdentifier2);
         assertEquals(dependencyIdentifier2, dependencyIdentifier);
     }
