@@ -71,4 +71,4 @@ public class Main {
 
 ### License
 
-**Avicenna** is free, open source under version 2 of [GNU GENERAL PUBLIC LICENSE](http://www.gnu.org/licenses/gpl-2.0.html).
+**Avicenna** is free, open source and redistributable under [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
