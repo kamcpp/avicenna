@@ -119,7 +119,77 @@ class InjectionTarget {
 ```
 #### Qualifiers
 
-**Avicenna** supports qualifiers. Qualifiers are annotations placed on **Dependency** sources to make them unique.
+**Avicenna** supports qualifiers. Qualifiers are annotations added to **Dependency** sources to make them unique. Qualifiers themselves, have **Qualifier** annotation.
+
+```Java
+@Qualifier
+@Target({ElementType.METHOD, ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface HelloWorld {
+}
+
+@Qualifier
+@Target({ElementType.METHOD, ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface ByeWorld {
+}
+
+@DependencyFactory
+class QualifersDepFac {
+
+  @Dependency
+  private String message = "This is a message ...";
+  
+  @Dependency
+  @HelloWorld
+  private String helloWorldMessage = "Hello World ...";
+  
+  @Dependency
+  @ByeWorld
+  public String getByeWorldMessage() {
+    return "Bye World ...";
+  }
+  
+  @Dependecny
+  @HelloWorld
+  @ByeWorld
+  public String getAnotherMessage() {
+    return "Another message ...";
+  }
+}
+```
+
+As you see above, we can have multiple qualifiers on a single dependency source. Above dependenvy factory has four distinct dependency source.
+
+```Java
+class InjectionTarget {
+  
+  @InjectHere
+  private String message;
+  
+  @InjectHere
+  @HelloWorld
+  private String helloWorldMessage;
+  
+  @InjectHere
+  @ByeWorld
+  private String byeWorldMessage;
+  
+  @InjectHere
+  @ByeWorld
+  @HelloWorld
+  private String anotherMessage;
+  
+  static {
+    Avicenna.addDependencyFactory(new QualifiersDepFac());
+  }
+  
+  public InjectionTarget() {
+    Avicenna.inject(this);
+  }
+}
+```
+More features will be added soon.
 
 ### Contributors
 1. [Kamran Amini](https://github.com/kamcpp)
