@@ -25,7 +25,7 @@ For other build systems, you have to use their proper dependency declaration syn
 
 Notice that 1.4 is the current latest version and you should always use the latest version.
 
-### Start Guide
+### Quick Start
 
 #### Hello World
 
@@ -108,6 +108,9 @@ class InjectionTarget {
   private Set<String> listOfStrings;
 }
 ```
+#### Qualifiers
+
+**Avicenna** supports qualifiers. Qualifiers are annotations placed on **Dependency** sources to make them unique.
 
 ### Contributors
 1. [Kamran Amini](https://github.com/kamcpp)
