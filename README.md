@@ -106,6 +106,15 @@ class InjectionTarget {
   
   @InjectHere
   private Set<String> listOfStrings;
+  
+  static {
+    // This line should be moved to a better place!
+    Avicenna.addDependencyFactory(new ListsDependencyFactory());
+  }
+  
+  public InjectionTarget() {
+    Avicenna.inject(this);
+  }
 }
 ```
 #### Qualifiers
