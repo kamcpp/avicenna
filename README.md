@@ -159,7 +159,7 @@ class QualifersDepFac {
 }
 ```
 
-As you see above, we can have multiple qualifiers on a single dependency source. Above dependenvy factory has four distinct dependency source.
+As you can see above, we can have multiple qualifiers on a single dependency source. Above dependenvy factory has four distinct dependency sources.
 
 ```Java
 class InjectionTarget {
