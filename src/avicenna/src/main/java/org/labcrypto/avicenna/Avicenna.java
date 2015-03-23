@@ -22,6 +22,8 @@ package org.labcrypto.avicenna;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -43,10 +45,12 @@ public class Avicenna {
      */
     private static DependencyContainer dependencyContainer;
     private static SortedSet<String> qualifiers;
+    private static Set<Class> dependencyFactories;
 
     static {
         dependencyContainer = new DependencyContainer();
         qualifiers = new TreeSet<String>();
+        dependencyFactories = new HashSet<Class>();
     }
 
     /**
@@ -61,7 +65,12 @@ public class Avicenna {
                 throw new AvicennaRuntimeException(
                         dependencyFactory.getClass() + " should be annotated with DependencyFactory.");
             }
+            if (Avicenna.dependencyFactories.contains(dependencyFactory.getClass())) {
+                throw new AvicennaRuntimeException(
+                        dependencyFactory.getClass() + " has already been added to container.");
+            }
             addDependencyFactoryToContainer(dependencyFactory);
+            Avicenna.dependencyFactories.add(dependencyFactory.getClass());
         }
     }
 
@@ -142,5 +151,7 @@ public class Avicenna {
 
     public static void clear() {
         dependencyContainer.clear();
+        qualifiers.clear();
+        dependencyFactories.clear();
     }
 }
