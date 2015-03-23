@@ -25,7 +25,9 @@ For other build systems, you have to use their proper dependency declaration syn
 
 Notice that 1.4 is the current latest version and you should always use the latest version.
 
-### Simple Start
+### Start Guide
+
+#### Hello World
 
 Here I start with a very simple usage; Hello World example. First of all, we need a dependency factory. It is a class annotated by **DependencyFactory** annotation. It has a method which returns a **String** reference and we will inject this reference wherever a **String** is needed. Notice, **names don't matter**.
 
@@ -67,6 +69,33 @@ public class Main {
   }
 }
 ```
+
+#### Generics
+
+Generis are supported by **Avicenna**. Here is an example.
+
+```Java
+@DependencyFactory
+class ListsDependencyFactory {
+  @Dependency
+  public List<String> getListOfStrings() {
+    // Make a list of strings and return.
+  }
+  
+  @Dependency
+  public List<Double> getListOfDoubles() {
+    // Make a list of doubles and return.
+  }
+  
+  @Dependency
+  public Set<String> getSetOfStrings() {
+    // Make a set of strings and return.
+  }
+}
+```
+Then we can easily request injection like this.
+
+
 ### Contributors
 1. [Kamran Amini](https://github.com/kamcpp)
 
