@@ -4,3 +4,4 @@
 - Change License to Apache v2.0 [DONE]
 - Concurrent access support [TODO]
 - External JSON configuration [TODO]
+- Lifecycle Listeners [TODO]
