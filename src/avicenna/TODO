@@ -5,3 +5,4 @@
 - Concurrent access support [TODO]
 - External JSON configuration [TODO]
 - Lifecycle Listeners [TODO]
+- Ignoring already added dependency factories [TODO]
