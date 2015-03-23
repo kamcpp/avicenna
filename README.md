@@ -95,6 +95,19 @@ class ListsDependencyFactory {
 ```
 Then we can easily request injection like this.
 
+```Java
+class InjectionTarget {
+
+  @InjectHere
+  private List<String> listOfStrings;
+  
+  @InjectHere
+  private List<Double> listOfDoubles;
+  
+  @InjectHere
+  private Set<String> listOfStrings;
+}
+```
 
 ### Contributors
 1. [Kamran Amini](https://github.com/kamcpp)
