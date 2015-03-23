@@ -119,7 +119,7 @@ class InjectionTarget {
 ```
 #### Qualifiers
 
-**Avicenna** supports qualifiers. Qualifiers are annotations added to **Dependency** sources to make them unique. Qualifiers themselves, have **Qualifier** annotation.
+**Avicenna** supports qualifiers. Qualifiers are annotations added to **Dependency** sources to make them unique. All qualifier annotations must have **Qualifier** annotation themselves.
 
 ```Java
 @Qualifier
