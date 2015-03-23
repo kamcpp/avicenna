@@ -23,7 +23,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.SortedSet;
 
 /**
  * This class makes an identifier for a given type. We use identifiers to distinguish different
@@ -39,24 +41,26 @@ class DependencyIdentifier {
      * TODO
      *
      * @param method
+     * @param qualifiers
      * @return
      */
-    public static DependencyIdentifier getDependencyIdentifierForClass(Method method) {
+    public static DependencyIdentifier getDependencyIdentifierForClass(Method method, SortedSet<String> qualifiers) {
         List<Type> typeList = new ArrayList<Type>();
         addTypeToList(method.getGenericReturnType(), typeList);
-        return new DependencyIdentifier(typeList);
+        return new DependencyIdentifier(typeList, qualifiers);
     }
 
     /**
      * TODO
      *
      * @param field
+     * @param qualifiers
      * @return
      */
-    public static DependencyIdentifier getDependencyIdentifierForClass(Field field) {
+    public static DependencyIdentifier getDependencyIdentifierForClass(Field field, SortedSet<String> qualifiers) {
         List<Type> typeList = new ArrayList<Type>();
         addTypeToList(field.getGenericType(), typeList);
-        return new DependencyIdentifier(typeList);
+        return new DependencyIdentifier(typeList, qualifiers);
     }
 
     /**
@@ -82,7 +86,7 @@ class DependencyIdentifier {
      */
     public String identifier;
 
-    public DependencyIdentifier(List<Type> types) {
+    public DependencyIdentifier(List<Type> types, SortedSet<String> qualifiers) {
         identifier = "";
         String delim = "";
         for (Type type : types) {
@@ -90,6 +94,11 @@ class DependencyIdentifier {
             typeString = typeString.split(" ")[1];
             identifier += delim + typeString;
             delim = "-";
+        }
+        if (qualifiers != null) {
+            for (String qualifier : qualifiers) {
+                identifier += delim + qualifier;
+            }
         }
     }
 

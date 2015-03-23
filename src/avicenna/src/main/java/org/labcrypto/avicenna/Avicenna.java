@@ -19,8 +19,11 @@
 
 package org.labcrypto.avicenna;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * Main class for loading dependencies and injection purposes. This class
@@ -39,9 +42,11 @@ public class Avicenna {
      * Dependency container used for keeping all dependency references.
      */
     private static DependencyContainer dependencyContainer;
+    private static SortedSet<String> qualifiers;
 
     static {
         dependencyContainer = new DependencyContainer();
+        qualifiers = new TreeSet<String>();
     }
 
     /**
@@ -69,8 +74,14 @@ public class Avicenna {
             Class clazz = dependencyFactory.getClass();
             for (Field field : clazz.getDeclaredFields()) {
                 if (field.isAnnotationPresent(Dependency.class)) {
+                    qualifiers.clear();
+                    for (Annotation annotation : field.getAnnotations()) {
+                        if (annotation.annotationType().isAnnotationPresent(Qualifier.class)) {
+                            qualifiers.add(annotation.annotationType().getCanonicalName());
+                        }
+                    }
                     dependencyContainer.add(DependencyIdentifier
-                                    .getDependencyIdentifierForClass(field),
+                                    .getDependencyIdentifierForClass(field, qualifiers),
                             new DependencySource(DependencySource.DependencySourceType.FIELD,
                                     field,
                                     null,
@@ -80,8 +91,14 @@ public class Avicenna {
             }
             for (Method method : clazz.getMethods()) {
                 if (method.isAnnotationPresent(Dependency.class)) {
+                    qualifiers.clear();
+                    for (Annotation annotation : method.getAnnotations()) {
+                        if (annotation.annotationType().isAnnotationPresent(Qualifier.class)) {
+                            qualifiers.add(annotation.annotationType().getCanonicalName());
+                        }
+                    }
                     dependencyContainer.add(DependencyIdentifier
-                                    .getDependencyIdentifierForClass(method),
+                                    .getDependencyIdentifierForClass(method, qualifiers),
                             new DependencySource(DependencySource.DependencySourceType.METHOD,
                                     null,
                                     method,
@@ -106,9 +123,15 @@ public class Avicenna {
                 Class clazz = object.getClass();
                 for (Field field : clazz.getDeclaredFields()) {
                     if (field.isAnnotationPresent(InjectHere.class)) {
+                        qualifiers.clear();
+                        for (Annotation annotation : field.getAnnotations()) {
+                            if (annotation.annotationType().isAnnotationPresent(Qualifier.class)) {
+                                qualifiers.add(annotation.annotationType().getCanonicalName());
+                            }
+                        }
                         field.setAccessible(true);
                         field.set(object, dependencyContainer.get(DependencyIdentifier
-                                .getDependencyIdentifierForClass(field)));
+                                .getDependencyIdentifierForClass(field, qualifiers)));
                     }
                 }
             }

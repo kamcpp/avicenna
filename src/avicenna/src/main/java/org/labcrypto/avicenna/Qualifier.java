@@ -27,7 +27,7 @@ import java.lang.annotation.Target;
 /**
  * @author Kamran Amini  <kam.cpp@gmail.com>
  */
-@Target({ElementType.METHOD, ElementType.FIELD})
+@Target(ElementType.ANNOTATION_TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Qualifier {
 }
