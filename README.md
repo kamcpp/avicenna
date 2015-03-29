@@ -12,7 +12,7 @@ It is really easy for projects using Maven build system. Just add following depe
   <dependency>
     <groupId>org.labcrypto</groupId>
     <artifactId>avicenna</artifactId>
-    <version>1.4</version>
+    <version>1.6</version>
   </dependency>
 ```
 If you are going to use **Avicenna** in an Android project using Gradle build system, it is easier to add following line to *build.gradle* file. This will trigger Gradle to download **Avicenna** and add it to your project.
