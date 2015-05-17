@@ -81,7 +81,7 @@ public class Avicenna {
     private static void addDependencyFactoryToContainer(Object dependencyFactory) {
         try {
             Class clazz = dependencyFactory.getClass();
-            for (Field field : clazz.getDeclaredFields()) {
+            for (Field field : ReflectionHelper.getFields(clazz)) {
                 if (field.isAnnotationPresent(Dependency.class)) {
                     qualifiers.clear();
                     for (Annotation annotation : field.getAnnotations()) {
@@ -130,7 +130,7 @@ public class Avicenna {
         try {
             for (Object object : objects) {
                 Class clazz = object.getClass();
-                for (Field field : clazz.getDeclaredFields()) {
+                for (Field field : ReflectionHelper.getFields(clazz)) {
                     if (field.isAnnotationPresent(InjectHere.class)) {
                         qualifiers.clear();
                         for (Annotation annotation : field.getAnnotations()) {
