@@ -8,3 +8,4 @@
 - Ignoring already added dependency factories [DONE]
 - Making Logs [TODO]
 - Injecting fields through inheritance tree. [DONE]
+- Avicenna should accept dependency factories as class objects in addition to objects. [TODO]
