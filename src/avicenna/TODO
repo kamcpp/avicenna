@@ -7,3 +7,4 @@
 - Lifecycle Listeners [TODO]
 - Ignoring already added dependency factories [DONE]
 - Making Logs [TODO]
+- Injecting through inheritance tree. [TODO]
