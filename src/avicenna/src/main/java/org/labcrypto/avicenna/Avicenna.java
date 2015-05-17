@@ -33,7 +33,7 @@ import java.util.TreeSet;
  * references from {@link org.labcrypto.avicenna.DependencyFactory} objects and inject
  * them into fields annotated by {@link org.labcrypto.avicenna.InjectHere}.
  *
- * @author Kamran Amini  <kam.cpp@gmail.com>
+ * @author Kamran Amini  kam.cpp@gmail.com
  * @see org.labcrypto.avicenna.Dependency
  * @see org.labcrypto.avicenna.DependencyFactory
  * @see org.labcrypto.avicenna.InjectHere

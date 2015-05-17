@@ -23,7 +23,7 @@ import java.util.Hashtable;
 import java.util.Map;
 
 /**
- * @author Kamran Amini  <kam.cpp@gmail.com>
+ * @author Kamran Amini  kam.cpp@gmail.com
  */
 class DependencyContainer {
 

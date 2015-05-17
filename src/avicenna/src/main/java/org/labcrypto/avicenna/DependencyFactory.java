@@ -28,7 +28,7 @@ import java.lang.annotation.Target;
  * Annotation on classes which supplies fields or methods for injection
  * purposes.
  *
- * @author Kamran Amini  <kam.cpp@gmail.com>
+ * @author Kamran Amini  kam.cpp@gmail.com
  * @see org.labcrypto.avicenna.Dependency
  */
 @Target({ElementType.TYPE})

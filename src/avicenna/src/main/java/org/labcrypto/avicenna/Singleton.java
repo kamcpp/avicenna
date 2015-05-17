@@ -28,7 +28,7 @@ import java.lang.annotation.Target;
  * Indicates a singleton mechanism for making dependency objects. {@link org.labcrypto.avicenna.Dependency}
  * fields or methods annotated by {@link org.labcrypto.avicenna.Singleton} will be made once on a lazy basis.
  *
- * @author Kamran Amini  <kam.cpp@gmail.com> *
+ * @author Kamran Amini  kam.cpp@gmail.com
  */
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)

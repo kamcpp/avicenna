@@ -23,7 +23,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * @author Kamran Amini  <kam.cpp@gmail.com>
+ * @author Kamran Amini  kam.cpp@gmail.com
  */
 class DependencySource {
 

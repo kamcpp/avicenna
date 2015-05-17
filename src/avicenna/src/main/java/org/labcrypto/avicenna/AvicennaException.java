@@ -20,7 +20,7 @@
 package org.labcrypto.avicenna;
 
 /**
- * @author Kamran Amini  <kam.cpp@gmail.com>
+ * @author Kamran Amini  kam.cpp@gmail.com
  */
 public class AvicennaException extends Exception {
     public AvicennaException() {

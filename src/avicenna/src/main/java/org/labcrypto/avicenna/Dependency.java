@@ -29,7 +29,7 @@ import java.lang.annotation.Target;
  * for future injections. This annotation is primarily used in a class
  * annotated by{@link org.labcrypto.avicenna.DependencyFactory}.
  *
- * @author Kamran Amini  <kam.cpp@gmail.com>
+ * @author Kamran Amini  kam.cpp@gmail.com
  * @see org.labcrypto.avicenna.DependencyFactory
  */
 @Target({ElementType.METHOD, ElementType.FIELD})

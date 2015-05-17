@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * A helper class that will ease our reflection related tasks.
  *
- * @author Kamran Amini  <kam.cpp@gmail.com>
+ * @author Kamran Amini  kam.cpp@gmail.com
  */
 public class ReflectionHelper {
 

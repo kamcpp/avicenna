@@ -98,7 +98,7 @@ class QualifierTestTarget {
 }
 
 /**
- * @author Kamran Amini  <kam.cpp@gmail.com>
+ * @author Kamran Amini  kam.cpp@gmail.com
  */
 public class QualifiersTest {
 

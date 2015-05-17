@@ -32,7 +32,7 @@ import java.util.SortedSet;
  * types while making maps for injection purposes. This class is mainly used in
  * {@link org.labcrypto.avicenna.DependencyContainer} class.
  *
- * @author Kamran Amini  <kam.cpp@gmail.com>
+ * @author Kamran Amini  kam.cpp@gmail.com
  * @see org.labcrypto.avicenna.DependencyContainer
  */
 class DependencyIdentifier {

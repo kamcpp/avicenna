@@ -29,7 +29,7 @@ import java.lang.annotation.Target;
  * annotation, will be injected using {@link org.labcrypto.avicenna.Avicenna#inject(Object...)}
  * method.
  *
- * @author Kamran Amini  <kam.cpp@gmail.com>
+ * @author Kamran Amini  kam.cpp@gmail.com
  * @see org.labcrypto.avicenna.Avicenna
  * @see org.labcrypto.avicenna.Avicenna#addDependencyFactory(Object...)
  * @see org.labcrypto.avicenna.Avicenna#inject(Object...)
