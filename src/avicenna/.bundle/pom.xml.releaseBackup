@@ -4,7 +4,7 @@
 
     <groupId>org.labcrypto</groupId>
     <artifactId>avicenna</artifactId>
-    <version>1.5-SNAPSHOT</version>
+    <version>1.6-SNAPSHOT</version>
     <name>Avicenna Dependency Injection Framework</name>
 
     <url>https://github.com/kamcpp/avicenna</url>
@@ -15,8 +15,8 @@
 
     <licenses>
         <license>
-            <name>GNU General Public License (GPL)</name>
-            <url>http://www.gnu.org/licenses/gpl.txt</url>
+            <name>Apache License Version 1.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
         </license>
     </licenses>
 

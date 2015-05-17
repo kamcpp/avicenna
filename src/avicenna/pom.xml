@@ -4,7 +4,7 @@
 
     <groupId>org.labcrypto</groupId>
     <artifactId>avicenna</artifactId>
-    <version>1.6-SNAPSHOT</version>
+    <version>1.6</version>
     <name>Avicenna Dependency Injection Framework</name>
 
     <url>https://github.com/kamcpp/avicenna</url>
@@ -30,6 +30,11 @@
             <organizationUrl>labcrypto.org</organizationUrl>
         </developer>
     </developers>
+
+    <properties>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
 
     <scm>
         <connection>scm:git:git://github.com/kamcpp/avicenna.git</connection>
