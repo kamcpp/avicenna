@@ -37,8 +37,8 @@
     </properties>
 
     <scm>
-        <connection>scm:git:ssh://github.com/kamcpp/avicenna.git</connection>
-        <developerConnection>scm:git:ssh://github.com/kamcpp/avicenna.git</developerConnection>
+        <connection>scm:git:https://github.com/kamcpp/avicenna.git</connection>
+        <developerConnection>scm:git:https://github.com/kamcpp/avicenna.git</developerConnection>
         <url>https://github.com/kamcpp/avicenna.git</url>
     </scm>
 
