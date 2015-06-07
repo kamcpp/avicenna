@@ -12,3 +12,4 @@
 - Retrieving reference of a specific type
 - Ability to order the dependency methods for invocations
 - Ability to define a new <Type, Object> pair
+- Argument injection

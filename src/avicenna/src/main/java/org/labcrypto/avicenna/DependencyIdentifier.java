@@ -66,6 +66,19 @@ class DependencyIdentifier {
     /**
      * TODO
      *
+     * @param clazz
+     * @param qualifiers
+     * @return
+     */
+    public static DependencyIdentifier getDependencyIdentifierForClass(Class clazz, SortedSet<String> qualifiers) {
+        List<Type> typeList = new ArrayList<Type>();
+        addTypeToList(clazz, typeList);
+        return new DependencyIdentifier(typeList, qualifiers);
+    }
+
+    /**
+     * TODO
+     *
      * @param type
      * @param typeList
      */
