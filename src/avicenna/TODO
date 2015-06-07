@@ -15,3 +15,5 @@
 - Ability to define a new <GenericType, Object> pair [DONE]
 - Argument injection
 - Injection order in targets
+- Working with named dependencies
+- Removing a single dependency from container
