@@ -48,7 +48,7 @@ public class HelloWorldTest {
     @Test
     public void testHelloWorld() {
         Avicenna.clear();
-        Avicenna.addDependencyFactory(new HelloWorldDependencyFactory());
+        Avicenna.addDependencyFactory(HelloWorldDependencyFactory.class);
 
         HelloWorldTarget helloWorldTarget = new HelloWorldTarget();
         Avicenna.inject(helloWorldTarget);

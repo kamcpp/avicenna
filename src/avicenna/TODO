@@ -8,8 +8,10 @@
 - Ignoring already added dependency factories [DONE]
 - Making Logs
 - Injecting fields through inheritance tree. [DONE]
-- Avicenna should accept dependency factories as class objects in addition to objects.
-- Retrieving reference of a specific type
+- Avicenna should accept dependency factories as class objects in addition to objects. [DONE]
+- Retrieving reference of a specific type [DONE]
 - Ability to order the dependency methods for invocations
-- Ability to define a new <Type, Object> pair
+- Ability to define a new <Type, Object> pair [DONE]
+- Ability to define a new <GenericType, Object> pair [DONE]
 - Argument injection
+- Injection order in targets

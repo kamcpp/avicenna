@@ -20,10 +20,7 @@ package org.labcrypto.avicenna;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * Main class for loading dependencies and injection purposes. This class
@@ -52,7 +49,36 @@ public class Avicenna {
     }
 
     /**
-     * Adds an object annotated by {@link org.labcrypto.avicenna.DependencyFactory}. Added object
+     * Adds classes annotated by {@link org.labcrypto.avicenna.DependencyFactory}. Added class
+     * has some methods or fields which supplied dependencies.
+     *
+     * @param dependencyFactoryClasses An object annotated by {@link org.labcrypto.avicenna.DependencyFactory}.
+     */
+    public static void addDependencyFactory(Class... dependencyFactoryClasses) {
+        for (Class dependencyFactoryClass : dependencyFactoryClasses) {
+            if (!dependencyFactoryClass.isAnnotationPresent(DependencyFactory.class)) {
+                throw new AvicennaRuntimeException(
+                        dependencyFactoryClass + " should be annotated with DependencyFactory.");
+            }
+            if (Avicenna.dependencyFactories.contains(dependencyFactoryClass)) {
+                throw new AvicennaRuntimeException(
+                        dependencyFactoryClass + " has already been added to container.");
+            }
+            try {
+                addDependencyFactoryToContainer(dependencyFactoryClass.newInstance());
+                Avicenna.dependencyFactories.add(dependencyFactoryClass);
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    /**
+     * Adds objects annotated by {@link org.labcrypto.avicenna.DependencyFactory}. Added object
      * has some methods or fields which supplied dependencies.
      *
      * @param dependencyFactories An object annotated by {@link org.labcrypto.avicenna.DependencyFactory}.
@@ -117,9 +143,47 @@ public class Avicenna {
      * @param dependency Dependency reference which should be copied to injection targets.
      */
     public static <T> void defineDependency(Class<T> clazz, T dependency) {
+        defineDependency(clazz, null, dependency);
+    }
+
+    /**
+     * Adds a direct mapping between a type and an object.
+     *
+     * @param clazz      Class type which should be injected.
+     * @param qualifiers Qualifiers to distinguish between similar types.
+     * @param dependency Dependency reference which should be copied to injection targets.
+     */
+    public static <T> void defineDependency(Class<T> clazz, Collection<String> qualifiers, T dependency) {
+        SortedSet<String> qs = new TreeSet<String>();
+        if (qualifiers != null) {
+            qs.addAll(qualifiers);
+        }
         dependencyContainer.add(DependencyIdentifier
-                        .getDependencyIdentifierForClass(clazz, qualifiers),
+                        .getDependencyIdentifierForClass(clazz, qs),
                 new DependencySource(clazz, dependency));
+    }
+
+    /**
+     * Retrieves a stored dependnecy using class object and qualifiers.
+     *
+     * @param clazz Class type which its related dependency reference should be retrieved.
+     */
+    public static <T> T get(Class<T> clazz) {
+        return get(clazz, null);
+    }
+
+    /**
+     * Retrieves a stored dependnecy using class object and qualifiers.
+     *
+     * @param clazz      Class type which its related dependency reference should be retrieved.
+     * @param qualifiers List of qualifiers to distinguish between similar types.
+     */
+    public static <T> T get(Class<T> clazz, Collection<String> qualifiers) {
+        SortedSet<String> qs = new TreeSet<String>();
+        if (qualifiers != null) {
+            qs.addAll(qualifiers);
+        }
+        return dependencyContainer.get(DependencyIdentifier.getDependencyIdentifierForClass(clazz, qs));
     }
 
     /**

@@ -40,11 +40,11 @@ class DependencyContainer {
         dependencySources.put(dependencyIdentifier, dependencySource);
     }
 
-    public Object get(DependencyIdentifier dependencyIdentifier) {
+    public <T> T get(DependencyIdentifier dependencyIdentifier) {
         if (!dependencySources.containsKey(dependencyIdentifier)) {
             throw new AvicennaRuntimeException("There is no registered object for this dependency identifier: " + dependencyIdentifier);
         }
-        return dependencySources.get(dependencyIdentifier).getObject();
+        return (T)dependencySources.get(dependencyIdentifier).getObject();
     }
 
     public void clear() {

@@ -73,7 +73,7 @@ public class MethodInjectionTest {
     @Test
     public void testMethodInjection() {
         Avicenna.clear();
-        Avicenna.addDependencyFactory(new MethodInjectionDependencyFactory());
+        Avicenna.addDependencyFactory(MethodInjectionDependencyFactory.class);
 
         MethodInjectionFirstTarget methodInjectionFirstTarget = new MethodInjectionFirstTarget();
         MethodInjectionSecondTarget methodInjectionSecondTarget = new MethodInjectionSecondTarget();
