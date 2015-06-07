@@ -1,11 +1,14 @@
 - Eager and Lazy annotations have been added. They are used for eager or lazy
-  initialization. [TODO]
+  initialization.
 - Qualifiers [DONE]
 - Change License to Apache v2.0 [DONE]
-- Concurrent access support [TODO]
-- External JSON configuration [TODO]
-- Lifecycle Listeners [TODO]
+- Concurrent access support
+- External JSON configuration
+- Lifecycle Listeners
 - Ignoring already added dependency factories [DONE]
-- Making Logs [TODO]
+- Making Logs
 - Injecting fields through inheritance tree. [DONE]
-- Avicenna should accept dependency factories as class objects in addition to objects. [TODO]
+- Avicenna should accept dependency factories as class objects in addition to objects.
+- Retrieving reference of a specific type
+- Ability to order the dependency methods for invocations
+- Ability to define a new <Type, Object> pair
