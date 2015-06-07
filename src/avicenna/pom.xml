@@ -5,7 +5,7 @@
 
     <groupId>org.labcrypto</groupId>
     <artifactId>avicenna</artifactId>
-    <version>1.7-SNAPSHOT</version>
+    <version>1.8-SNAPSHOT</version>
     <name>Avicenna Dependency Injection Framework</name>
 
     <url>https://github.com/kamcpp/avicenna</url>
